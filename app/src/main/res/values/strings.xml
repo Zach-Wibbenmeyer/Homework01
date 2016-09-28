@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Homework01</string>
+
+    <string name="valueOneTextView">Value 1:</string>
+    <string name="valueTwoTextView">Value 2:</string>
+
+    <string name="numberOneTextField">""</string>
+    <string name="numberTwoTextField">""</string>
+
+    <string name="addButton">+</string>
+    <string name="subtractButton">-</string>
+    <string name="multiplyButton">*</string>
+    <string name="divideButton">/</string>
+
+    <string name="resultsTextView">""</string>
+</resources>
