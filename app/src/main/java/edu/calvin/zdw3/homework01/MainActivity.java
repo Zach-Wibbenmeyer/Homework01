@@ -9,7 +9,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    /* CS 262 - Homework 01: Build a simple calculator app
+     * Professor: Keith Vanderlinden
+     * Author: Zach Wibbenmeyer
+     * Date: September 30, 2016
+     */
 
+    // set up private variables
     private Button addButton, subtractButton, multiplyButton, divideButton;
     private EditText numberOneEditText, numberTwoEditText;
     private TextView resultsTextView;
@@ -19,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // initialize widgets
         addButton = (Button) findViewById(R.id.addButton);
         subtractButton = (Button) findViewById(R.id.subtractButton);
         multiplyButton = (Button) findViewById(R.id.multiplyButton);
@@ -27,16 +34,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         numberTwoEditText = (EditText) findViewById(R.id.numberTwoEditText);
         resultsTextView = (TextView) findViewById(R.id.resultsTextView);
 
+        // set onclicklisteners
         addButton.setOnClickListener(this);
         subtractButton.setOnClickListener(this);
         multiplyButton.setOnClickListener(this);
         divideButton.setOnClickListener(this);
     }
 
+    /* onClick() - performs the basic math for the calculator
+     * @param: v (type -> View)
+     * @return: resultsTextView (type -> int)
+     * Precondition: Cannot divide by zero or enter negative numbers
+     */
     @Override
     public void onClick(View v) {
+        // set up the first and second numbers
         String firstNumber = numberOneEditText.getText().toString();
         String secondNumber = numberTwoEditText.getText().toString();
+        // switch on Id
         switch(v.getId()) {
             case R.id.addButton:
                 int addition = Integer.parseInt(firstNumber) + Integer.parseInt(secondNumber);
@@ -51,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 resultsTextView.setText(String.valueOf(multiplication));
                 break;
             case R.id.divideButton:
+                // implement a try catch for division so program won't crash
                 try {
                     int division = Integer.parseInt(firstNumber) / Integer.parseInt(secondNumber);
                     resultsTextView.setText(String.valueOf(division));
